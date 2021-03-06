@@ -37,6 +37,8 @@ class _PostCreateState extends State<PostCreate> {
           SizedBox(height: 15),
           RaisedButton(
             child: Text("Submit"),
+            color: Colors.blue,
+            textColor: Colors.white,
             onPressed: _isLoading ? null : submit,
           )
         ],
@@ -59,6 +61,10 @@ class _PostCreateState extends State<PostCreate> {
       );
     } catch (e) {
       print(e);
+      setState(() {
+        _isLoading = false;
+      });
+      return;
     }
 
     _controller.clear();
