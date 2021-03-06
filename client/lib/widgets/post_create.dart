@@ -15,34 +15,31 @@ class _PostCreateState extends State<PostCreate> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Create Post",
-            style: TextStyle(fontSize: 30),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Create Post",
+          style: TextStyle(fontSize: 30),
+        ),
+        SizedBox(height: 15),
+        TextField(
+          controller: _controller,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            contentPadding: EdgeInsets.symmetric(horizontal: 12),
+            labelText: "Title",
           ),
-          SizedBox(height: 15),
-          TextField(
-            controller: _controller,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.symmetric(horizontal: 12),
-              labelText: "Title",
-            ),
-          ),
-          SizedBox(height: 15),
-          RaisedButton(
-            child: Text("Submit"),
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: _isLoading ? null : submit,
-          )
-        ],
-      ),
+        ),
+        SizedBox(height: 15),
+        RaisedButton(
+          child: Text("Submit"),
+          color: Colors.blue,
+          textColor: Colors.white,
+          onPressed: _isLoading ? null : submit,
+        )
+      ],
     );
   }
 
